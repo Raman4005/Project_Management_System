@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Project_Management_System.Models.ProjectTask>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>ProjectTask List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-dark">Add New Project Task</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstimatedNumberOfDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualNumberOfDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedNumberOfDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualNumberOfDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project.ProjectTitle)
+            </td>
+            <td>
+                <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@item.Id">Update ProjectTask</a> |
+                <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.Id">ProjectTask Details</a> |
+                <a class="btn btn-outline-dark" asp-action="Delete" asp-route-id="@item.Id">Delete ProjectTask</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

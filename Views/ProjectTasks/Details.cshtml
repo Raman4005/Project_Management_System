@@ -1,0 +1,48 @@
+﻿@model Project_Management_System.Models.ProjectTask
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <h2>ProjectTask Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstimatedNumberOfDays)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstimatedNumberOfDays)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualNumberOfDays)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActualNumberOfDays)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectTitle)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-dark" asp-action="Edit" asp-route-id="@Model.Id">Update Project Task</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
